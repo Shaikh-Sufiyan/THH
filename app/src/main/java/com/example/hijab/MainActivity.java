@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -110,6 +111,36 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.search_view, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.search) {
+            Toast.makeText(getApplicationContext(),"Search",Toast.LENGTH_SHORT).show();
+
+        }
+        else if(id==R.id.nav_favourite){
+            Toast.makeText(getApplicationContext(),"Wishlist",Toast.LENGTH_SHORT).show();
+
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -118,26 +149,18 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
-            Toast.makeText(getApplicationContext(),"Home",Toast.LENGTH_SHORT).show();
-
-        } else if (id == R.id.nav_order) {
+         if (id == R.id.nav_order) {
             Toast.makeText(getApplicationContext(),"Order",Toast.LENGTH_SHORT).show();
-
-        } else if (id == R.id.nav_favourite) {
-            Toast.makeText(getApplicationContext(),"Wishlist",Toast.LENGTH_SHORT).show();
-
-        } else if (id == R.id.nav_cart) {
-            Toast.makeText(getApplicationContext(),"Cart",Toast.LENGTH_SHORT).show();
-
-        } else if (id == R.id.nav_inbox) {
-            Toast.makeText(getApplicationContext(),"Notification",Toast.LENGTH_SHORT).show();
 
         }
         else if (id == R.id.nav_setting) {
             Toast.makeText(getApplicationContext(),"Setting",Toast.LENGTH_SHORT).show();
 
         }
+         else if (id == R.id.nav_sandook) {
+             Toast.makeText(getApplicationContext(),"Sandook",Toast.LENGTH_SHORT).show();
+
+         }
         else if (id == R.id.nav_logout) {
             Toast.makeText(getApplicationContext(),"Logout",Toast.LENGTH_SHORT).show();
 
